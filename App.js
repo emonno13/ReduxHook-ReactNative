@@ -5,9 +5,7 @@ import store from './store/store';
 import Main from './main';
 
 export default function App() {
-  useEffect(
-    () => console.log('start')
-  )
+ 
   return (
     <Provider store={store}>
       <View style={styles.container}>
