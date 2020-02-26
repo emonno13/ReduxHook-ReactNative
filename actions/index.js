@@ -3,9 +3,7 @@
 import {
     INCREASE,
     DECREASE,
-    FETCH_PRODUCTS_PENDING,
     FETCH_PRODUCTS_SUCCESS,
-    FETCH_PRODUCTS_ERROR
 } from './types';
 
 
@@ -14,24 +12,15 @@ export const counterIncrease = (data) => ({
     type: INCREASE,
     payload: data
 });
-export const counterDecrease = () => ({ type: DECREASE });
 
-export const fetchProductsPending = () => {
-    return {
-        type: FETCH_PRODUCTS_PENDING
-    }
-}
+export const counterDecrease = () => ({ 
+    type: DECREASE 
+});
 
-export const fetchProductsSuccess = (products) => {
+export const fetchProductsSuccess = (users) => {
     return {
         type: FETCH_PRODUCTS_SUCCESS,
-        products: products
+        payload: users,
     }
 }
 
-export const fetchProductsError = (error) => {
-    return {
-        type: FETCH_PRODUCTS_ERROR,
-        error: error
-    }
-}
