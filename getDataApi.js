@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { fetchProductsSuccess } from './actions/index';
-import {  useDispatch } from 'react-redux';
+import { fetchProductsSuccess,fetchArticlesSuccess } from './actions/index';
+
 
 //
 
@@ -18,18 +18,18 @@ const fetchData = async (api) => {
 };
 
 // Call api with redux
-const fetchDataByRedux = async (api) => {
-    //const dispatch = useDispatch();
+// const fetchDataByRedux = async (api) => {
+//     //const dispatch = useDispatch();
   
-    const result = await axios({
-      method: 'get',
-      url: api
-    });
-    console.log(result)
+//     const result = await axios({
+//       method: 'get',
+//       url: api
+//     });
+//     console.log(result)
 
-    dispatch(fetchProductsSuccess(result.data))
+//     dispatch(fetchProductsSuccess(result.data))
   
-};
+// };
 
 //
 // const fetchDataByRedux = async (api) => {
@@ -50,5 +50,5 @@ const fetchDataByRedux = async (api) => {
 
 export default {
   fetchData,
-  fetchDataByRedux
+  //fetchDataByRedux
 };

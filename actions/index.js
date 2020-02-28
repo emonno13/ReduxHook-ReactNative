@@ -4,6 +4,9 @@ import {
     INCREASE,
     DECREASE,
     FETCH_PRODUCTS_SUCCESS,
+    FETCH_ARTICLES_SUCCESS,
+    FETCH_ARTICLES_MORE,
+    SET_PAGE_POSITION
 } from './types';
 
 
@@ -24,3 +27,23 @@ export const fetchProductsSuccess = (users) => {
     }
 }
 
+export const fetchArticlesSuccess = (articles) => {
+    return {
+        type: FETCH_ARTICLES_SUCCESS,
+        payload: articles,
+    }
+}
+
+export const fetchArticlesMore = (more) => {
+    return {
+        type: FETCH_ARTICLES_MORE,
+        payload: more,
+    }
+}
+
+export const setPagePostion = (pagePosition) => {
+    return {
+        type: SET_PAGE_POSITION,
+        payload: pagePosition
+    }
+}

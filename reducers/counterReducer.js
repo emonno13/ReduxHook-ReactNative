@@ -4,6 +4,9 @@ import {
   INCREASE,
   DECREASE,
   FETCH_PRODUCTS_SUCCESS,
+  FETCH_ARTICLES_SUCCESS,
+  FETCH_ARTICLES_MORE,
+  SET_PAGE_POSITION
 } from '../actions/types';
 
 
@@ -12,12 +15,14 @@ import {
 
 const initialState = {
   value: 0,
-  users: []
+  users: [],
+  articles: [],
+  pagePosition: 1
 }
 
 export default function (state = initialState, action) {
   //console.log('action',action);
-  //console.log('state',state)
+
 
   switch (action.type) {
     // case INCREASE:
@@ -30,7 +35,7 @@ export default function (state = initialState, action) {
     case INCREASE:
       return {
         ...state,
-        value: state.value + action.payload 
+        value: state.value + action.payload
       }
 
     // xử lý không cần payload
@@ -41,12 +46,26 @@ export default function (state = initialState, action) {
       }
 
     case FETCH_PRODUCTS_SUCCESS:
-      
       return {
         ...state,
         users: action.payload
       }
 
+    case FETCH_ARTICLES_SUCCESS:
+      return {
+        ...state,
+        articles: action.payload
+      }
+    case FETCH_ARTICLES_MORE :
+      return {
+        ...state,
+        articles: state.articles.concat(action.payload)
+      }
+    case SET_PAGE_POSITION:
+      return {
+        ...state,
+        pagePosition:  action.payload
+      }
     default:
       return state;
   }
